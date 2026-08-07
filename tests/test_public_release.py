@@ -10,6 +10,26 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class PublicReleaseTests(unittest.TestCase):
+    def test_mit_license_is_present(self) -> None:
+        license_text = (ROOT / "LICENSE").read_text(encoding="utf-8")
+        self.assertTrue(license_text.startswith("MIT License\n"))
+        self.assertRegex(license_text, r"(?m)^Copyright \(c\) 2026 \S.*$")
+        self.assertIn('THE SOFTWARE IS PROVIDED "AS IS"', license_text)
+
+    def test_github_workflow_is_offline_and_read_only(self) -> None:
+        workflow = (ROOT / ".github" / "workflows" / "tests.yml").read_text(
+            encoding="utf-8"
+        )
+        normalized = workflow.lower()
+        self.assertIn("permissions:\n  contents: read", normalized)
+        self.assertNotIn("pull_request_target", normalized)
+        self.assertNotIn("secrets.", normalized)
+        self.assertNotIn("permissions: write", normalized)
+        self.assertIn("uses: actions/checkout@v7.0.1", workflow)
+        self.assertIn("uses: actions/setup-python@v7.0.0", workflow)
+        self.assertIn("python demo.py --scenario all", workflow)
+        self.assertIn("python -m unittest discover -s tests -v", workflow)
+
     def test_demo_has_no_network_or_process_execution_imports(self) -> None:
         forbidden = {"http", "requests", "socket", "subprocess", "urllib"}
         for path in (ROOT / "src" / "failclosed_demo").glob("*.py"):
@@ -48,6 +68,17 @@ class PublicReleaseTests(unittest.TestCase):
             self.skipTest("Manifest is generated during release packaging")
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         self.assertGreaterEqual(len(manifest["files"]), 10)
+        listed_paths = {item["path"] for item in manifest["files"]}
+        actual_paths = {
+            path.relative_to(ROOT).as_posix()
+            for path in ROOT.rglob("*")
+            if path.is_file()
+            and ".git" not in path.relative_to(ROOT).parts
+            and "__pycache__" not in path.relative_to(ROOT).parts
+            and path.name != "PUBLIC_MANIFEST.json"
+            and path.suffix.lower() not in {".pyc", ".pyo"}
+        }
+        self.assertEqual(actual_paths, listed_paths)
         for item in manifest["files"]:
             path = ROOT / item["path"]
             self.assertTrue(path.is_file(), item["path"])

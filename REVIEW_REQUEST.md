@@ -11,6 +11,8 @@ Please verify:
 5. The sabotage regression substitutes a runner that ignores intent and proves the invariant assertion fails against it.
 6. Limitations are prominent enough to prevent paper execution from being mistaken for profitability or live readiness.
 7. The architecture and interview guide are understandable without access to the private project.
+8. The GitHub workflow has read-only repository permissions, uses no secrets, and runs only the credential-free demo and offline tests.
+9. The MIT license applies only to this sanitized public repository.
 
 Run:
 

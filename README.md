@@ -1,5 +1,8 @@
 # Fail-Closed Trading Research and Paper Operations
 
+[![Offline tests](https://github.com/judasxo/fail-closed-trading-system/actions/workflows/tests.yml/badge.svg)](https://github.com/judasxo/fail-closed-trading-system/actions/workflows/tests.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Most trading projects showcase the strategy that survived. This project showcases the controls that prevented weak strategies, defective data, and ambiguous execution states from being presented as success.
 
 It combines:
@@ -36,11 +39,11 @@ python demo.py --scenario all
 python -m unittest discover -s tests -v
 ```
 
-The demo replays four operational situations:
+The demo replays five operational situations:
 
 1. a clean paper-style round trip;
 2. a definitive entry rejection with direct proof that no order exists;
-3. an ambiguous failure after intent, requiring manual reconciliation; and
+3. an ambiguous failure after intent, requiring manual reconciliation;
 4. a reliability run rejected because of a large heartbeat gap; and
 5. a deliberate attempt to bypass intent-before-entry, rejected by the control.
 
@@ -67,6 +70,7 @@ docs/ARCHITECTURE.md          Research and operations boundaries
 docs/INTERVIEW_GUIDE.md       Concise project explanation and technical Q&A
 docs/LIMITATIONS.md           Claims the project deliberately does not make
 SECURITY.md                   Public-release security model
+LICENSE                       MIT open-source license
 ```
 
 ## Why this is portfolio-worthy

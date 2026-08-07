@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "scope": "Sanitized derivative evidence; no raw prices, credentials, account identifiers, or order identifiers",
+  "research": {
+    "HYP-0001": {
+      "disposition": "primary_claim_killed",
+      "retained_cycles": 189,
+      "primary_point_basis_points": -2.6183184852365,
+      "primary_one_sided_95_lower_basis_points": -23.904828,
+      "strategy_vs_cash_point_basis_points": 23.438689,
+      "strategy_vs_cash_one_sided_95_lower_basis_points": 3.927042,
+      "quarter_end_descriptive_point_basis_points": 3.828451,
+      "quarter_end_illustrative_mde_basis_points": 75.302765,
+      "alternate_window_or_inversion_inspected": false,
+      "private_source_sha256": [
+        "8B43CEA708F797615DB4B71C9AAB12FA01BF26E7467A6D287494FDDB5863A817",
+        "5D7EFCE9EAC417ADE88DFD82EFF41034DADF0A2CEE1C676B7DD9F5894190D5E6"
+      ]
+    },
+    "HYP-0002": {
+      "disposition": "neither_information_nor_economics",
+      "sessions": 2263,
+      "after_cost_point_basis_points": -5.277,
+      "after_cost_one_sided_95_lower_basis_points": -7.0059,
+      "separation_point_basis_points": -4.2106,
+      "separation_one_sided_95_lower_basis_points": -9.8183,
+      "inversion_or_tuning_inspected": false,
+      "private_source_sha256": [
+        "B047493EB508145FDD522EDB01C6F590299D300D497B183B53F671298A63C613"
+      ]
+    },
+    "candidate_search": {
+      "status": "closed_until_recorded_review_date",
+      "precision_survivors": 0,
+      "best_required_sessions": 6496,
+      "best_required_trading_years": 25.8,
+      "private_source_sha256": [
+        "647DED8BD719A8634BC9C9DB4F8EBF7AF46EF88D4DDD0913F953034EF505D87B",
+        "367A8DF4E45B45A2F4A30AE9F90222A1ADD5C61C7B548C38B84AB45B37692A2E"
+      ]
+    }
+  },
+  "data_admission": {
+    "rejected_public_vendor_development_history": {
+      "admitted": false,
+      "rows": 1763,
+      "cent_match_share": 0.9994324631101021,
+      "invalid_ohlc_rows": 2,
+      "maximum_close_difference_usd": 0.20000183105469205,
+      "private_source_sha256": [
+        "C3F00B48DCA3F7C567D00690E4DC49DD2B223142C4F59C7FAD6306ADDF7634AE"
+      ]
+    }
+  },
+  "operations": {
+    "equity_paper_canary": {
+      "completed_and_reconciled_clean": true,
+      "notional_usd": 1.0,
+      "private_source_sha256": [
+        "A43562C71BB3EDB7CFAF7FDF067E3DC9B6409040A9E100A3BABF609899B7F436"
+      ]
+    },
+    "crypto_automated_paper_canary": {
+      "completed_and_reconciled_clean": true,
+      "notional_usd": 10.0,
+      "private_source_sha256": [
+        "BFD376E4F981BAAD57A34BB40F0844FCBF9FF87081F83332F230D45D7B0B09B6",
+        "917B4D437668EA4AE9879D436D76BAA55320B0F5FECF4C99A3A30208F8508EE6"
+      ]
+    },
+    "crypto_soak_v1": {
+      "accepted": false,
+      "observations": 1440,
+      "maximum_heartbeat_gap_seconds": 10836.080469,
+      "private_source_sha256": [
+        "D380F71670186EF0967FD939648CF27EE49ACF3AAB2AD7A0812DD8FC977488EA"
+      ]
+    },
+    "crypto_soak_v2": {
+      "accepted": true,
+      "observations": 1440,
+      "ready_share": 0.9958333333333333,
+      "fetch_success_share": 0.9986111111111111,
+      "account_clean_share": 1.0,
+      "account_operational_share": 1.0,
+      "maximum_heartbeat_gap_seconds": 64.086,
+      "cost_floor_median_basis_points": 59.7491,
+      "cost_floor_p95_basis_points": 63.6254,
+      "thresholds_unchanged_from_v1": true,
+      "private_source_sha256": [
+        "C760D2A75F6BC9DB180C70049774EF731AFC78BBF7CB5BACD10F3178A257B569",
+        "F9404ECC4CD7D25A1906F8A0A0B23F3685AD59AAF6759740E1681E51F0D6202D"
+      ]
+    }
+  }
+}
